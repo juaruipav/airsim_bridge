@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+    <!-- ........................ ARGUMENTS ................................  -->
+
+    <!-- Arguments for airsim_bridge node  -->
+    <arg name="image_rgb_topic" default="/airsim_bridge/rgb_camera" />
+    <arg name="airsim_ip" 	default="192.168.1.213" />
+    <arg name="airsim_port" 	default="41451" />
+    <arg name="image_freq" 	default="1" />
+
+
+    <!--  .........................  NODES ................................  -->
+
+    <!-- airsim_bridge_node  -->
+    <node pkg="airsim_bridge" type="airsim_bridge_node" name="airsim_bridge" output="screen" >
+        <param name="airsim_ip" 	value="$(arg airsim_ip)"/> 
+	<param name="airsim_port" 	value="$(arg airsim_port)"/>  
+        <param name="image_freq" 	value="$(arg image_freq)"/>
+        <param name="image_rgb_topic" 	value="$(arg image_rgb_topic)"/>
+    </node>
+
+</launch>
